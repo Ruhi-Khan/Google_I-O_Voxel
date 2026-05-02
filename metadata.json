@@ -1,0 +1,6 @@
+{
+  "name": "I/O 2026: Voxel Countdown",
+  "description": "A high-fidelity 3D voxel-based countdown experience for I/O 2026. Featuring procedural audio, interactive 3D numbers, and voice-activated launch protocols.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": []
+}

@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Bungee+Outline&family=Outfit:wght@300;400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Bungee Outline", system-ui, sans-serif;
+  
+  --color-neon-cyan: #00f3ff;
+  --color-neon-pink: #ff00ff;
+  --color-neon-green: #39ff14;
+  --color-dark-surface: #050505;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-surface text-white antialiased overflow-hidden;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+  
+  .neon-border {
+    @apply border border-neon-cyan/50 shadow-[0_0_15px_rgba(0,243,255,0.3)];
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes wave {
+  0% { transform: perspective(1000px) rotateY(15deg) skewY(2deg) rotateZ(0deg); }
+  25% { transform: perspective(1000px) rotateY(0deg) skewY(0deg) rotateZ(1deg); }
+  50% { transform: perspective(1000px) rotateY(-15deg) skewY(-2deg) rotateZ(0deg); }
+  75% { transform: perspective(1000px) rotateY(0deg) skewY(0deg) rotateZ(-1deg); }
+  100% { transform: perspective(1000px) rotateY(15deg) skewY(2deg) rotateZ(0deg); }
+}
+
+@keyframes sparkle-fall {
+  0% { transform: translateY(-20vh) scale(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; transform: translateY(0vh) scale(1) rotate(45deg); }
+  100% { transform: translateY(120vh) scale(0.3) rotate(1080deg); opacity: 0; }
+}
+
+.animate-wave {
+  animation: wave 2.5s infinite ease-in-out;
+}
+
+.animate-sparkle-fall {
+  animation: sparkle-fall 4s infinite linear;
+}
